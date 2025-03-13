@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@theme {
+  /* Light Theme */
+  --color-background: #f9f9f9; /* Light Gray */
+  --color-text: #222222; /* Dark Charcoal */
+  --color-input: #ffffff; /* Pure White */
+  --color-border: #dddddd; /* Soft Gray */
+  --color-accent: #007aff; /* Vibrant Blue */
+
+  /* Dark Theme */
+  --color-background-dark: #1e1e1e; /* Deep Black */
+  --color-text-dark: #eaeaea; /* Soft White */
+  --color-input-dark: #2c2c2c; /* Dark Gray */
+  --color-border-dark: #444444; /* Medium Gray */
+  --color-accent-dark: #0a84ff; /* Bright Blue */
+}
