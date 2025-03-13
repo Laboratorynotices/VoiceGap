@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Определение переменных */
 @theme {
   /* Light Theme */
   --color-background: #f9f9f9; /* Light Gray */
@@ -14,4 +15,22 @@
   --color-input-dark: #2c2c2c; /* Dark Gray */
   --color-border-dark: #444444; /* Medium Gray */
   --color-accent-dark: #0a84ff; /* Bright Blue */
+}
+
+/* Определение основных стилей */
+@layer base {
+  /*************************************************/
+  /* Определение классов для светлой и темной темы */
+  /*************************************************/
+  /* Светлая тема (по умолчанию) */
+  body {
+    @apply bg-background text-text border-border;
+  }
+
+  /* Темная тема */
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-background-dark text-text-dark border-border-dark;
+    }
+  }
 }
