@@ -3,5 +3,5 @@ defineProps<{ outputData: string }>();
 </script>
 
 <template>
-  <p>Получено из родителя: {{ outputData }}</p>
+  <pre>{{ outputData }}</pre>
 </template>
