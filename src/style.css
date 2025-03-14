@@ -27,14 +27,29 @@
     @apply bg-background text-text border-border;
   }
 
+  textarea {
+    @apply bg-input;
+  }
+
   /* Темная тема */
   @media (prefers-color-scheme: dark) {
     body {
       @apply bg-background-dark text-text-dark border-border-dark;
     }
+
+    textarea {
+      @apply bg-input-dark;
+    }
   }
 }
 
 #app {
-  @apply grid lg:grid-cols-2 2xl:grid-cols-5;
+  @apply grid h-screen lg:grid-cols-2 2xl:grid-cols-5;
+  grid-template-rows: 50px 1fr 1fr;
+}
+
+@media screen and (min-width: 1024px) {
+  #app {
+    grid-template-rows: 100px 1fr;
+  }
 }
