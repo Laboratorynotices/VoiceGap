@@ -2,37 +2,41 @@
 import { computed, ref } from "vue";
 import InputArea from "./components/InputArea.vue";
 import OutputArea from "./components/OutputArea.vue";
+import PauseConfigurator from "./components/PauseConfigurator.vue";
+import type { configSettingsInterface } from "./types/configSettingsInterface.ts";
 
 // Определяем модель для поля ввода
 const rawData = ref("");
 
-//(0.5s to 5s) интервал разрешённых пауз между словами
-const PAUSE_INTERVAL_MIN = 0.5 as const;
-const PAUSE_INTERVAL_MAX = 5 as const;
-
-// Сколько букв в слове для минимальной паузы
-const MIN_WORD_LENGTH = 3 as const;
-// Сколько букв в слове для максимальной паузы
-const MAX_WORD_LENGTH = 10 as const;
+// Настройка для определения длины слов и пауз между ними
+const config = ref<configSettingsInterface>({
+  // от 3 до 10 букв - интервал длины слов
+  wordLength: [3, 10],
+  // (от 0.5s до 5s) интервал пауз между словами
+  pauseLength: [0.5, 5],
+});
 
 // Функция для расчета времени паузы на основе длины слова
 const calculatePauseTime = (wordLength: number) => {
-  // Ограничиваем длину слова в пределах MIN_WORD_LENGTH и MAX_WORD_LENGTH
+  // Ограничиваем длину слова в пределах интервала config.value.wordLength
   const clampedLength = Math.max(
-    MIN_WORD_LENGTH,
-    Math.min(wordLength, MAX_WORD_LENGTH),
+    config.value.wordLength[0],
+    Math.min(wordLength, config.value.wordLength[1]),
   );
 
   // Рассчитываем время с линейной интерполяцией
-  const pauseRange = PAUSE_INTERVAL_MAX - PAUSE_INTERVAL_MIN;
-  const lengthRange = MAX_WORD_LENGTH - MIN_WORD_LENGTH;
+  const pauseRange = config.value.pauseLength[1] - config.value.pauseLength[0];
+  const lengthRange = config.value.wordLength[1] - config.value.wordLength[0];
 
   // Вычисляем нормализованную позицию длины слова в диапазоне (0-1)
   const normalizedPosition =
-    lengthRange > 0 ? (clampedLength - MIN_WORD_LENGTH) / lengthRange : 0;
+    lengthRange > 0
+      ? (clampedLength - config.value.wordLength[0]) / lengthRange
+      : 0;
 
-  // Интерполируем паузу между PAUSE_INTERVAL_MIN и PAUSE_INTERVAL_MAX
-  const pauseTime = PAUSE_INTERVAL_MIN + normalizedPosition * pauseRange;
+  // Интерполируем паузу между двумя граничными значениями разрешенного диапазона пауз
+  const pauseTime =
+    +config.value.pauseLength[0] + normalizedPosition * pauseRange;
 
   // Округляем до одного десятичного знака
   return Math.round(pauseTime * 10) / 10;
@@ -73,5 +77,5 @@ const outputData = computed(() => {
     :outputData="outputData"
   />
   <div class="border-1 lg:col-span-2 2xl:col-span-1">Статистика</div>
-  <div class="border-1 lg:col-span-2 2xl:col-span-1">Настройки</div>
+  <PauseConfigurator v-model="config" />
 </template>
