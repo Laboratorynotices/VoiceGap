@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import InstructionPanel from "./components/InstructionPanel.vue";
 import InputArea from "./components/InputArea.vue";
 import OutputArea from "./components/OutputArea.vue";
 import PauseConfigurator from "./components/PauseConfigurator.vue";
-import type { configSettingsInterface } from "./types/configSettingsInterface.ts";
+import type { configSettingsInterface } from "./types/configSettingsInterface";
 
 // Определяем модель для поля ввода
 const rawData = ref("");
@@ -66,10 +67,7 @@ const outputData = computed(() => {
 </script>
 
 <template>
-  <div class="border-1 lg:col-span-2 2xl:col-span-5 order-last">
-    Описание приложения для
-    <a href="https://luvvoice.com/" target="_blank">luvvoice.com</a>.
-  </div>
+  <InstructionPanel class="border-1 lg:col-span-2 2xl:col-span-5 order-last" />
   <div class="border-1 lg:col-span-2 2xl:col-span-5">Шапка</div>
   <InputArea class="border-1 2xl:col-span-2 2xl:row-span-2" v-model="rawData" />
   <OutputArea

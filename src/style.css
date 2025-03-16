@@ -45,17 +45,17 @@
 
 #app {
   @apply grid h-screen lg:grid-cols-2 2xl:grid-cols-5;
-  grid-template-rows: 50px 1fr 1fr;
+  grid-template-rows: 50px 30vh 30vh;
 }
 
 @media screen and (min-width: 64rem) {
   #app {
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 100px 60vh;
   }
 }
 
 @media screen and (min-width: 96rem) {
   #app {
-    grid-template-rows: 100px 1fr 1fr;
+    grid-template-rows: 100px 30vh 30vh;
   }
 }
