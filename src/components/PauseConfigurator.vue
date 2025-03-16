@@ -46,46 +46,49 @@ if (!config.value) {
 </script>
 
 <template>
-  <h2>Настройки</h2>
   <div>
-    <label>Длина слов: </label>
-    <input
-      type="range"
-      v-model="wordLength[0]"
-      :min="WORD_LENGTH_INPUT.minValue"
-      :max="+wordLength[1] - WORD_LENGTH_INPUT.step"
-      :step="WORD_LENGTH_INPUT.step"
-      @input="updateConfig"
-    />
-    <input
-      type="range"
-      v-model="wordLength[1]"
-      :min="+wordLength[0] + WORD_LENGTH_INPUT.step"
-      :max="WORD_LENGTH_INPUT.maxValue"
-      :step="WORD_LENGTH_INPUT.step"
-      @input="updateConfig"
-    />
-    <span>{{ wordLength[0] }} - {{ wordLength[1] }}</span>
-  </div>
+    <h2>Настройки</h2>
 
-  <div>
-    <label>Длина пауз: </label>
-    <input
-      type="range"
-      v-model="pauseLength[0]"
-      :min="PAUSE_LENGTH_INPUT.minValue"
-      :max="+pauseLength[1] - PAUSE_LENGTH_INPUT.step"
-      :step="PAUSE_LENGTH_INPUT.step"
-      @input="updateConfig"
-    />
-    <input
-      type="range"
-      v-model="pauseLength[1]"
-      :min="+pauseLength[0] + PAUSE_LENGTH_INPUT.step"
-      :max="PAUSE_LENGTH_INPUT.maxValue"
-      :step="PAUSE_LENGTH_INPUT.step"
-      @input="updateConfig"
-    />
-    <span>{{ pauseLength[0] }} - {{ pauseLength[1] }}</span>
+    <div>
+      <label>Длина слов: </label>
+      <input
+        type="range"
+        v-model="wordLength[0]"
+        :min="WORD_LENGTH_INPUT.minValue"
+        :max="+wordLength[1] - WORD_LENGTH_INPUT.step"
+        :step="WORD_LENGTH_INPUT.step"
+        @input="updateConfig"
+      />
+      <input
+        type="range"
+        v-model="wordLength[1]"
+        :min="+wordLength[0] + WORD_LENGTH_INPUT.step"
+        :max="WORD_LENGTH_INPUT.maxValue"
+        :step="WORD_LENGTH_INPUT.step"
+        @input="updateConfig"
+      />
+      <span>{{ wordLength[0] }} - {{ wordLength[1] }}</span>
+    </div>
+
+    <div>
+      <label>Длина пауз: </label>
+      <input
+        type="range"
+        v-model="pauseLength[0]"
+        :min="PAUSE_LENGTH_INPUT.minValue"
+        :max="+pauseLength[1] - PAUSE_LENGTH_INPUT.step"
+        :step="PAUSE_LENGTH_INPUT.step"
+        @input="updateConfig"
+      />
+      <input
+        type="range"
+        v-model="pauseLength[1]"
+        :min="+pauseLength[0] + PAUSE_LENGTH_INPUT.step"
+        :max="PAUSE_LENGTH_INPUT.maxValue"
+        :step="PAUSE_LENGTH_INPUT.step"
+        @input="updateConfig"
+      />
+      <span>{{ pauseLength[0] }} - {{ pauseLength[1] }}</span>
+    </div>
   </div>
 </template>

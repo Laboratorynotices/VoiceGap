@@ -77,5 +77,8 @@ const outputData = computed(() => {
     :outputData="outputData"
   />
   <div class="border-1 lg:col-span-2 2xl:col-span-1">Статистика</div>
-  <PauseConfigurator v-model="config" />
+  <PauseConfigurator
+    class="border-1 lg:col-span-2 2xl:col-span-1"
+    v-model="config"
+  />
 </template>
