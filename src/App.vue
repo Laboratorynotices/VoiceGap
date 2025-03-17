@@ -4,6 +4,7 @@ import InstructionPanel from "./components/InstructionPanel.vue";
 import InputArea from "./components/InputArea.vue";
 import OutputArea from "./components/OutputArea.vue";
 import PauseConfigurator from "./components/PauseConfigurator.vue";
+import StatDisplay from "./components/StatDisplay.vue";
 import type { configSettingsInterface } from "./types/configSettingsInterface";
 
 // Определяем модель для поля ввода
@@ -74,7 +75,10 @@ const outputData = computed(() => {
     class="border-1 2xl:col-span-2 2xl:row-span-2 bg-input dark:bg-dark-input"
     :outputData="outputData"
   />
-  <div class="border-1 lg:col-span-2 2xl:col-span-1">Статистика</div>
+  <StatDisplay
+    class="border-1 lg:col-span-2 2xl:col-span-1"
+    :rawData="rawData"
+  />
   <PauseConfigurator
     class="border-1 lg:col-span-2 2xl:col-span-1"
     v-model="config"
