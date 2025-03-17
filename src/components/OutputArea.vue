@@ -3,5 +3,5 @@ defineProps<{ outputData: string }>();
 </script>
 
 <template>
-  <pre>{{ outputData }}</pre>
+  <textarea placeholder="Результат" readonly>{{ outputData }}</textarea>
 </template>
