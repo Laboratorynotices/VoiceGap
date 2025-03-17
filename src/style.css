@@ -44,18 +44,7 @@
 }
 
 #app {
-  @apply grid h-screen lg:grid-cols-2 2xl:grid-cols-5;
-  grid-template-rows: 50px 30vh 30vh;
-}
-
-@media screen and (min-width: 64rem) {
-  #app {
-    grid-template-rows: 100px 60vh;
-  }
-}
-
-@media screen and (min-width: 96rem) {
-  #app {
-    grid-template-rows: 100px 30vh 30vh;
-  }
+  @apply grid h-screen grid-rows-[50px_30vh_30vh] 
+    lg:grid-cols-2 lg:grid-rows-[100px_60vh] 
+    2xl:grid-cols-5 2xl:grid-rows-[100px_30vh_30vh];
 }
