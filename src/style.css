@@ -45,6 +45,21 @@
 
 #app {
   @apply grid h-screen grid-rows-[50px_30vh_30vh] 
-    lg:grid-cols-2 lg:grid-rows-[100px_60vh] 
+    lg:mx-10 lg:mt-10 
+    lg:grid-cols-2 lg:grid-rows-[70px_60vh] 
     2xl:grid-cols-5 2xl:grid-rows-[100px_30vh_30vh];
+}
+
+#site-header {
+  @apply text-4xl font-bold px-3 
+    lg:text-5xl lg:px-6 lg:py-1.5 
+    2xl:text-7xl 2xl:px-8;
+}
+
+h1 {
+  @apply text-3xl font-bold;
+}
+
+h2 {
+  @apply text-2xl font-bold;
 }

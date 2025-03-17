@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import InstructionPanel from "./components/InstructionPanel.vue";
+import SiteHeader from "./components/SiteHeader.vue";
 import InputArea from "./components/InputArea.vue";
 import OutputArea from "./components/OutputArea.vue";
 import PauseConfigurator from "./components/PauseConfigurator.vue";
@@ -69,7 +70,7 @@ const outputData = computed(() => {
 
 <template>
   <InstructionPanel class="border-1 lg:col-span-2 2xl:col-span-5 order-last" />
-  <div class="border-1 lg:col-span-2 2xl:col-span-5">Шапка</div>
+  <SiteHeader class="border-1 lg:col-span-2 2xl:col-span-5" />
   <InputArea class="border-1 2xl:col-span-2 2xl:row-span-2" v-model="rawData" />
   <OutputArea
     class="border-1 2xl:col-span-2 2xl:row-span-2 bg-input dark:bg-dark-input"
