@@ -73,7 +73,7 @@ const outputData = computed(() => {
   <SiteHeader class="border-1 lg:col-span-2 2xl:col-span-5" />
   <InputArea class="border-1 2xl:col-span-2 2xl:row-span-2" v-model="rawData" />
   <OutputArea
-    class="border-1 2xl:col-span-2 2xl:row-span-2 bg-input dark:bg-dark-input"
+    class="border-1 2xl:col-span-2 2xl:row-span-2"
     :outputData="outputData"
   />
   <StatDisplay
