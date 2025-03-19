@@ -51,8 +51,8 @@
 }
 
 #site-header {
-  @apply text-4xl font-bold px-3 
-    lg:text-5xl lg:px-6 lg:py-1.5 
+  @apply text-4xl font-bold px-3 text-center
+    lg:text-5xl lg:px-6 lg:py-1.5 lg:text-left 
     2xl:text-7xl 2xl:px-8;
 }
 
