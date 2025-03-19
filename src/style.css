@@ -28,7 +28,7 @@
   }
 
   textarea {
-    @apply bg-input;
+    @apply bg-input border-border;
   }
 
   /* Темная тема */
@@ -38,14 +38,14 @@
     }
 
     textarea {
-      @apply bg-input-dark;
+      @apply bg-input-dark border-border-dark;
     }
   }
 }
 
 #app {
-  @apply grid h-screen grid-rows-[50px_30vh_30vh] 
-    lg:mx-10 lg:mt-10 
+  @apply grid grid-rows-[50px_30vh_30vh] gap-5
+    lg:mx-10 lg:mt-10 lg:mb-10 lg:rounded-3xl lg:border-2
     lg:grid-cols-2 lg:grid-rows-[70px_60vh] 
     2xl:grid-cols-5 2xl:grid-rows-[100px_30vh_30vh];
 }
@@ -62,4 +62,8 @@ h1 {
 
 h2 {
   @apply text-2xl font-bold;
+}
+
+textarea {
+  @apply p-2 border;
 }

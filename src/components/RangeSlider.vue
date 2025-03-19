@@ -93,7 +93,7 @@ watch(
 </script>
 
 <template>
-  <div class="w-full py-4">
+  <div class="range-slider w-full py-4">
     <label class="block mb-2 text-sm font-medium">
       {{ config.label }}:
       <span class="ml-2 font-bold">{{ lowerValue }} - {{ upperValue }}</span>

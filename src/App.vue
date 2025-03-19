@@ -69,19 +69,22 @@ const outputData = computed(() => {
 </script>
 
 <template>
-  <InstructionPanel class="border-1 lg:col-span-2 2xl:col-span-5 order-last" />
-  <SiteHeader class="border-1 lg:col-span-2 2xl:col-span-5" />
-  <InputArea class="border-1 2xl:col-span-2 2xl:row-span-2" v-model="rawData" />
+  <InstructionPanel class="mb-5 px-5 lg:col-span-2 2xl:col-span-5 order-last" />
+  <SiteHeader class="lg:col-span-2 2xl:col-span-5" />
+  <InputArea
+    class="mx-5 lg:mr-2.5 2xl:col-span-2 2xl:row-span-2"
+    v-model="rawData"
+  />
   <OutputArea
-    class="border-1 2xl:col-span-2 2xl:row-span-2"
+    class="mx-5 lg:ml-2.5 2xl:col-span-2 2xl:row-span-2"
     :outputData="outputData"
   />
   <StatDisplay
-    class="border-1 lg:col-span-2 2xl:col-span-1"
+    class="border-b-1 pb-5 px-5 lg:col-span-2 2xl:col-span-1"
     :rawData="rawData"
   />
   <PauseConfigurator
-    class="border-1 lg:col-span-2 2xl:col-span-1"
+    class="border-b-1 px-5 lg:col-span-2 2xl:col-span-1 2xl:border-b-0"
     v-model="config"
   />
 </template>
