@@ -8,7 +8,15 @@ const props = defineProps<{
 
 // Создаем вычисляемые свойства для подсчета количества символов и слов
 const charsCount = computed(() => props.rawData.length);
-const wordsCount = computed(() => props.rawData.split(/\s+/).length);
+const wordsCount = computed(() =>
+  // Разбиваем текст на слова по пробелам и считаем количество элементов в массиве
+  // Если текст содержит что-то кроме пробелов...
+  props.rawData.trim()
+    ? // ...то считаем количество слов...
+      props.rawData.trim().split(/\s+/).length
+    : // ...иначе возвращаем 0.
+      0,
+);
 // Создаем вычисляемое свойство для подсчета времени диктанта
 const dictationTime = computed(() => {
   // Предполагаем, что ребёнок пишет один знак за 2 секунды, или 0.5 знака в секунду
